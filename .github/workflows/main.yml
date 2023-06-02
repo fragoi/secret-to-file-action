@@ -32,7 +32,7 @@ jobs:
           NODE_ENV: production
         run: |
           npm install
-          git add node_modules
+          git add -f node_modules
           git status
           # source npm-functions
           # createRelease
