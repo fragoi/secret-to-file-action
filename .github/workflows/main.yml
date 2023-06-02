@@ -28,7 +28,10 @@ jobs:
       - uses: actions/checkout@v3
       - uses: fragoi/bash-actions@main
       - name: Npm install for production
+        env:
+          NODE_ENV: production
         run: |
+          ls -l
           npm install --omit=dev
           ls -l
           ls -l node_modules
