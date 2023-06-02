@@ -31,7 +31,8 @@ jobs:
         env:
           NODE_ENV: production
         run: |
-          ls -l
-          npm install --omit=dev
-          ls -l
-          ls -l node_modules
+          npm install
+          git add node_modules
+          git status
+          # source npm-functions
+          # createRelease
