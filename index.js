@@ -1,11 +1,10 @@
 import { dirname } from 'path';
 import { mkdir, writeFile, rm } from 'fs/promises';
-import { getInput, info } from '@actions/core';
 
 export async function main() {
-  const text = getInput('text');
-  const path = getInput('path');
-  info(`Writing file: ${path}`);
+  const text = process.env.INPUT_TEXT;
+  const path = process.env.INPUT_PATH;
+  console.log(`Writing file: ${path}`);
 
   const dir = dirname(path);
   await mkdir(dir, { recursive: true });
@@ -13,8 +12,8 @@ export async function main() {
 }
 
 export async function post() {
-  const path = getInput('path');
-  info(`Removing file: ${path}`);
+  const path = process.env.INPUT_PATH;
+  console.log(`Removing file: ${path}`);
 
   await rm(path);
 }
