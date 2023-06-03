@@ -28,12 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: fragoi/bash-actions@main
-      - name: Npm install for production
-        env:
-          NODE_ENV: production
+      - name: Create release
         run: |
-          npm install
-          git add -f node_modules/**/*
-          git status
-          # source npm-functions
-          # createRelease
+          source npm-functions
+          createRelease
